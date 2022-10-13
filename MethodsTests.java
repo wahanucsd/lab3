@@ -17,4 +17,5 @@ public class MethodsTests {
     int[] input1 = { 12, 13, 7, 8, 5, 3};
     assertEquals(EvensExample.sumEvenIndices(input1), 24);
   }
+
 }

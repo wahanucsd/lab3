@@ -1,6 +1,38 @@
 Part1
 
+[Link](https://github.com/wahanucsd/lab3/blob/main/lab2-SearchEngine.md)
 
+screenshots1
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-14%20at%209.22.43%20PM.png)
+
+I call the method "handleRequest". This URL contains "add" so it should use the first if statement. 
+In my code, I want to save the String that after "=", which is "anewstringtoadd", to a new arraylist which name is "store".
+However, it returns "404 Not Found!".
+Because only the else statement at the end of the method could return "404 Not Found!", 
+this shows that it isn't use the first if statdment.
+So there are some bugs in my code.
+
+screenshots2
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-14%20at%209.22.53%20PM.png)
+
+I call the method "handleRequest". This URL contains "add" so it should use the first if statement. 
+In my code, I want to save the String that after "=", which is "pineapple", to a new arraylist which name is "store".
+However, it returns "404 Not Found!".
+Because only the else statement at the end of the method could return "404 Not Found!", 
+this shows that it isn't use the first if statdment.
+So there are some bugs in my code.
+
+
+
+screenshots3
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-14%20at%209.23.03%20PM.png)
+
+I called the method "handleRequest". This URL contains "search" so it should use the second if statement.
+In my code, I want to save all the String in "store" that contains the string after "=" to a new arraylist which name is "storesearch".
+So I want to save "pineapple" because "pineapple" contains "app".
+But it return "java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0".
+This means I didn't save any string to "store".
+So there are some bugs in my code.
 
 
 

@@ -132,7 +132,9 @@ static double averageWithoutLowest(double[] arr) {
 
 }
 
-
+I change the part of the code. In the first for loop, the code will remember the index of the lowest number instead of the number itself.
+So, in the next for loop, the sum will minus the number of that index instead of the number it self.
+Because of this, if there are many lowest number, the loop will not remove all of them.
 
 
 

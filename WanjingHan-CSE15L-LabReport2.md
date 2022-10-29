@@ -1,7 +1,7 @@
 Part1
 
 [Link](https://github.com/wahanucsd/lab3/blob/main/lab2-SearchEngine.md)
-
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.45.43%20PM.png)
 import java.io.IOException; import java.net.URI; import java.util.ArrayList; import java.util.List;
 
 class Handler implements URLHandler { // The one bit of state on the server: a number that will be manipulated by // various requests. int num = 0;
@@ -82,7 +82,9 @@ Part2
 First Bug
 
 The failure-inducing input (the code of the test):
-
+		    
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.49.03%20PM.png)
+		    
 @Test
 public void testaverageWithoutLowest3() {
   double[] input1 = { 2.0, 4.0, 3.0, 2.0, 5.0};
@@ -93,6 +95,8 @@ public void testaverageWithoutLowest3() {
 
 The symptom (the failing test output):
 
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.49.48%20PM.png)
+		    
 testaverageWithoutLowest3(ArrayTests)
 3) testaverageWithoutLowest3(ArrayTests)
 java.lang.AssertionError: expected:<3.5> but was:<3.0>
@@ -105,6 +109,8 @@ at ArrayTests.testaverageWithoutLowest3(ArrayTests.java:47)
 
 The bug (the code fix needed):
 
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.51.47%20PM.png)		    
+		    
 static double averageWithoutLowest(double[] arr) {
     if(arr.length < 2) { return 0.0; }
     double lowest = arr[0];
@@ -145,6 +151,7 @@ Second Bug
 
 The failure-inducing input (the code of the test):
 
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.54.17%20PM.png)				
 
 @Test 
 	public void testReverseInPlace2() {
@@ -155,6 +162,8 @@ The failure-inducing input (the code of the test):
 
 The symptom (the failing test output):
 
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.55.28%20PM.png)		    
+		    
 testReverseInPlace2(ArrayTests)
 arrays first differed at element [2]; expected:<3> but was:<1>
         at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)

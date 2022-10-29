@@ -153,29 +153,28 @@ Second Bug
 
 The failure-inducing input (the code of the test):
 
-![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.54.17%20PM.png)				
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%2011.13.08%20PM.png)				
 
-@Test 
-	public void testReverseInPlace2() {
-    int[] input1 = { 3, 2, 1 };
-    ArrayExamples.reverseInPlace(input1);
-    assertArrayEquals(new int[]{ 1, 2, 3 }, input1);
-	}
+@Test
+  public void testReversed2() {
+    int[] input1 = { 3, 2, 1};
+    assertArrayEquals(new int[]{1, 2, 3 }, ArrayExamples.reversed(input1));
+  }
 
 The symptom (the failing test output):
 
-![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%209.55.28%20PM.png)		    
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%2011.14.47%20PM.png)		    
 		    
-testReverseInPlace2(ArrayTests)
-arrays first differed at element [2]; expected:<3> but was:<1>
+testReversed2(ArrayTests)
+arrays first differed at element [0]; expected:<1> but was:<0>
         at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
         at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
         at org.junit.Assert.internalArrayEquals(Assert.java:534)
         at org.junit.Assert.assertArrayEquals(Assert.java:418)
         at org.junit.Assert.assertArrayEquals(Assert.java:429)
-        at ArrayTests.testReverseInPlace2(ArrayTests.java:23)
+        at ArrayTests.testReversed2(ArrayTests.java:29)
         ... 30 trimmed
-Caused by: java.lang.AssertionError: expected:<3> but was:<1>
+Caused by: java.lang.AssertionError: expected:<1> but was:<0>
         at org.junit.Assert.fail(Assert.java:89)
         at org.junit.Assert.failNotEquals(Assert.java:835)
         at org.junit.Assert.assertEquals(Assert.java:120)
@@ -186,12 +185,27 @@ Caused by: java.lang.AssertionError: expected:<3> but was:<1>
 
 The bug (the code fix needed):
 
+![Image](https://github.com/wahanucsd/lab3/blob/main/Screen%20Shot%202022-10-28%20at%2011.15.32%20PM.png)
 
+static int[] reversed(int[] arr) {
+    int[] newArray = new int[arr.length];
+    for(int i = 0; i < arr.length; i += 1) {
+      newArray[i] = arr[arr.length - i - 1];
+    }
+    return newArray;
+  }
+		    
 
-
+I change the for loop from "arr[i] = newArray[arr.length - i - 1];" to "newArray[i] = arr[arr.length - i - 1];".
+Because we want to save the elements from the old arraylist to the new arraylist.
+So the original code is wrong because it try to save the element from the new to the old but there are nothing in the new.
+		    
 
 Then, explain the connection between the symptom and the bug. Why does the bug cause that particular symptom for that particular input?
 
-
+The symptom shows that the first element is 0 but we expect 1. Because the original code try to save the element of the new arraylist to 
+the old arraylist. But there are nothing in the new, the element is O in the symtom.
+After I change the order in the for loop(from "arr[i] = newArray[arr.length - i - 1];" to "newArray[i] = arr[arr.length - i - 1];"),
+The elements in the old arraylist will save to the new arraylist and also change the order, so there is no bug anymore.
 
 
